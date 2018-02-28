@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="jumbotron">
+    <h2>Create a PCF user/org/space for a user</h2>
+    <h4>(Digifabricpcf instance)</h4>
+  </div>
+  <div class="panel panel-primary">
+        <div class="panel-body">    
+
+
+            <form class="span8 form-horizontal" (ngSubmit)="submit(''+AdminUsername,''+AdminPassword)"
+                #pcfCreationForm="ngForm">
+
+                <div class="form-group">
+                <label class="col-sm-2 control-label">Admin Username: </label>
+                    <div class="col-sm-5">
+                        <input name="auname" class="form-control" id="focusedInput" type="text" placeholder="Admin Username" [(ngModel)]="AdminUsername" 
+                            required minlength="6" #auname="ngModel">
+                        <div *ngIf="auname.invalid && (auname.dirty || auname.touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="auname.errors.required">
+                                Admin Username is required.
+                            </div>
+                            <div *ngIf="auname.errors.minlength">
+                                Admin Username must be at least 6 characters long.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                <label class="col-sm-2 control-label">Admin Password: </label>
+                    <div class="col-sm-5">
+                        <input name="apname" class="form-control" id="focusedInput" type="password" placeholder="Admin Password" [(ngModel)]="AdminPassword" 
+                            required minlength="6" #apname="ngModel">
+                        <div *ngIf="apname.invalid && (apname.dirty || apname.touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="apname.errors.required">
+                                Admin Password is required.
+                            </div>
+                            <div *ngIf="apname.errors.minlength">
+                                Admin Password must be at least 6 characters long.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success"
+                    [disabled]="!pcfCreationForm.form.valid">
+                 LOGIN
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="text-center">
+    <p>
+        <a href="https://apps.system.dev.digifabricpcf.com" target="_top">Apps manager for digifabric instance</a>
+    </p>
+</div>
